@@ -22,8 +22,7 @@ namespace ObrasBibliograficas.Teste
         private void SetupClient()
         {
             string curDir = Directory.GetCurrentDirectory();
-            _server = new TestServer(new WebHostBuilder()
-                .UseStartup<Startup>());
+            _server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
             Client = _server.CreateClient();
         }
     }

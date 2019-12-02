@@ -21,7 +21,7 @@ namespace ObrasBibliograficas.Teste
         }
 
         [Fact]
-        public async Task AuthorsGetAll_ReturnOkResponse()
+        public async Task Listar_ReturnOkResponse()
         {
             var response = await _testContext.Client.GetAsync("/api/Author/");
             response.EnsureSuccessStatusCode();
@@ -29,7 +29,7 @@ namespace ObrasBibliograficas.Teste
         }
 
         [Fact]
-        public async Task GetAuthor_ReturnsOkResponse()
+        public async Task SelecionarPorId_ReturnsOkResponse()
         {
             var response = await _testContext.Client.GetAsync("/api/Autor?id=1");
             response.EnsureSuccessStatusCode();
@@ -37,14 +37,14 @@ namespace ObrasBibliograficas.Teste
         }
 
         [Fact]
-        public async Task GetAuthor_ReturnsBadRequestResponse()
+        public async Task SelecionarPorId_ReturnsBadRequestResponse()
         {
             var response = await _testContext.Client.GetAsync("/api/Autor?id=-1");
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
-        public async Task GetAuthor_CorrectContentType()
+        public async Task SelecionarPorId_CorrectContentType()
         {
             var response = await _testContext.Client.GetAsync("/api/Autor?id=2");
             response.EnsureSuccessStatusCode();
@@ -52,7 +52,7 @@ namespace ObrasBibliograficas.Teste
         }
 
         [Fact]
-        public async Task CreateOrEditAuthor_ReturnsOkRequestResponse()
+        public async Task Incluir_ReturnsOkRequestResponse()
         {
             var param = new AutorDTO { Id = 0, Nome = "Glauber Figueiredo" };
             var content = new StringContent(JsonConvert.SerializeObject(param), Encoding.UTF8, "application/json");
