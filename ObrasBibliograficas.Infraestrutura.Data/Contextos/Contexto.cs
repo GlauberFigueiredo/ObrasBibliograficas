@@ -16,10 +16,7 @@ namespace ObrasBibliograficas.Infraestrutura.Data.Contextos
         public Contexto(DbContextOptions<Contexto> options)
             : base(options)
         {
-            if (Database.GetPendingMigrations().Count() > 0)
-            {
-                Database.Migrate();
-            }
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -74,9 +71,17 @@ namespace ObrasBibliograficas.Infraestrutura.Data.Contextos
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new AutorMap());
+
+            modelBuilder.Entity<Autor>().HasData(
+            new Autor { Id = 1, Nome = "Anthony Stark" },
+            new Autor { Id = 2, Nome = "Steve Rogers" },
+            new Autor { Id = 3, Nome = "Thor Odinson" }
+            );
+
         }
     }
 }

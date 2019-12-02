@@ -1,13 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ObrasBibliograficas.Aplicacao\ObrasBibliograficas.Aplicacao.csproj" />
     <ProjectReference Include="..\ObrasBibliograficas.Dominio\ObrasBibliograficas.Dominio.csproj" />
-    <ProjectReference Include="..\ObrasBibliograficas.Infraestrutura.Data\ObrasBibliograficas.Infraestrutura.Data.csproj" />
+    <ProjectReference Include="..\ObrasBibliograficas.Infraestrutura.IoC\ObrasBibliograficas.Infraestrutura.IoC.csproj" />
   </ItemGroup>
 
 </Project>
